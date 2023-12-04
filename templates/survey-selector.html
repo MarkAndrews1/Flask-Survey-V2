@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} Survey Selector {% endblock %}
+{% block content %}
+<h1>Welcome to our surveys!</h1>
+<form action="/survey-writeup" method="post">
+    <h2>Please select a survey!</h2>
+    {% for code, survey in surveys.items() %}
+        <label>
+            <h3>{{survey.title}}</h3>
+            <input type="radio" value="{{code}}" name="selected-survey">
+        </label>
+    {% endfor %}
+    <br>
+    <br>
+    <button>GO!</button>
+</form>
+{% endblock %}
